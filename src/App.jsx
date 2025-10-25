@@ -1,6 +1,6 @@
-import React, { useState, useEffect, useRef } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import QRCode from 'qrcode'
-import { Download, QrCode, Upload, Palette, Settings } from 'lucide-react'
+import { Download, QrCode, Upload, Palette, Settings, Heart } from 'lucide-react'
 
 function App() {
   const [text, setText] = useState('https://example.com')
@@ -17,6 +17,7 @@ function App() {
   const [logo, setLogo] = useState(null)
   const [logoPreview, setLogoPreview] = useState(null)
   const canvasRef = useRef(null)
+  const year = new Date().getFullYear()
 
   useEffect(() => {
     generateQRCode()
@@ -370,6 +371,11 @@ function App() {
 
         {/* Hidden canvas for logo merging */}
         <canvas ref={canvasRef} style={{ display: 'none' }} />
+
+        {/* Footer */}
+        <footer className="mt-12 text-center text-sm text-gray-500">
+          Made with <Heart className="inline w-4 h-4 text-red-500 mx-1" /> by <span className="font-semibold"><a href="https://github.com/GreenHacker420">GreenHacker</a></span> • © {year} All rights reserved.
+        </footer>
       </div>
     </div>
   )
