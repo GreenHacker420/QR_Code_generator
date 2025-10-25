@@ -8,14 +8,20 @@
     "build": "vite build",
     "preview": "vite preview"
   },
-  "keywords": ["qr-code", "generator", "react"],
+  "keywords": [
+    "qr-code",
+    "generator",
+    "react"
+  ],
   "author": "",
   "license": "MIT",
   "dependencies": {
+    "jsbarcode": "^3.12.1",
+    "lucide-react": "^0.263.1",
+    "qrcode": "^1.5.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "qrcode": "^1.5.4",
-    "lucide-react": "^0.263.1"
+    "react-router-dom": "^7.9.4"
   },
   "devDependencies": {
     "@types/react": "^18.2.15",
