@@ -1,5 +1,3 @@
-import React from 'react'
-
 export default function BarcodeInput({ value, onChange }) {
   return (
     <div className="bg-white rounded-lg shadow-lg p-6">

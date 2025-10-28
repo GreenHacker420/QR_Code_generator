@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import { useEffect } from 'react'
 import { useBarcodeState } from '../hooks/useBarcodeState'
 import { useBarcodeGenerator } from '../hooks/useBarcodeGenerator'
 import { BarcodeInput, BarcodeSettings, BarcodePreview } from '../components/BarcodeControls'

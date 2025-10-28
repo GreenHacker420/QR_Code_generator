@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import { useEffect } from 'react'
 import { QrCode } from 'lucide-react'
 import { useQRState } from '../hooks/useQRState'
 import { useQRGenerator } from '../hooks/useQRGenerator'
