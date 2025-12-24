@@ -9,6 +9,9 @@ export function useQRState() {
     width: 300,
     margin: 4,
     color: { dark: '#000000', light: '#FFFFFF' },
+    style: 'square',
+    eyeStyle: 'square',
+    gradient: null, // { from: '#000000', to: '#000000' }
   })
   const [logo, setLogo] = useState(null)
   const [logoPreview, setLogoPreview] = useState(null)
@@ -26,7 +29,7 @@ export function useQRState() {
   const handleLogoUpload = useCallback(async (e) => {
     const file = e.target.files[0]
     if (!file) return
-    
+
     try {
       const dataUrl = await readFileAsDataURL(file)
       setLogo(dataUrl)
@@ -44,6 +47,21 @@ export function useQRState() {
   const updateOption = useCallback((key, value) => {
     if (key === 'dark' || key === 'light') {
       setOptions((prev) => ({ ...prev, color: { ...prev.color, [key]: value } }))
+    } else if (key === 'gradientFrom' || key === 'gradientTo') {
+      setOptions((prev) => {
+        const currentGradient = prev.gradient || { from: prev.color.dark, to: prev.color.dark }
+        const newGradient = { ...currentGradient }
+        if (key === 'gradientFrom') newGradient.from = value
+        if (key === 'gradientTo') newGradient.to = value
+
+        // If we are setting a gradient, ensure we have the object
+        return { ...prev, gradient: newGradient }
+      })
+    } else if (key === 'useGradient') {
+      setOptions((prev) => ({
+        ...prev,
+        gradient: value ? { from: prev.color.dark, to: prev.color.dark } : null
+      }))
     } else {
       setOptions((prev) => ({ ...prev, [key]: value }))
     }

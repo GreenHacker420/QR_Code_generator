@@ -30,6 +30,19 @@ export default {
         md: "calc(0.5rem - 2px)",
         sm: "calc(0.5rem - 4px)",
       },
+      animation: {
+        "mesh-1": "mesh 20s infinite ease-in-out alternate",
+        "mesh-2": "mesh 25s infinite ease-in-out alternate-reverse",
+        "mesh-3": "mesh 22s infinite ease-in-out alternate",
+      },
+      keyframes: {
+        mesh: {
+          "0%": { transform: "translate(0, 0) scale(1)" },
+          "33%": { transform: "translate(30px, -50px) scale(1.1)" },
+          "66%": { transform: "translate(-20px, 20px) scale(0.9)" },
+          "100%": { transform: "translate(0, 0) scale(1)" },
+        },
+      },
     },
   },
   plugins: [],
