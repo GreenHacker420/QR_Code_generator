@@ -5,6 +5,7 @@ import { ConfigurationPanel } from '../components/qr/ConfigurationPanel'
 import { DesignControls } from '../components/qr/DesignControls'
 import { PreviewPanel } from '../components/qr/PreviewPanel'
 import FrameSettings from '../components/QRControls/FrameSettings'
+import SEO from '../components/SEO'
 
 export default function QRPage() {
   const {
@@ -39,6 +40,13 @@ export default function QRPage() {
 
   return (
     <div className="space-y-8 animate-in fade-in duration-500 slide-in-from-bottom-4">
+      <SEO
+        title="Free QR Code Generator | Create Custom QR Codes with Logos"
+        description="Generate unlimited custom QR codes with colors, logos, and advanced frames. High-quality SVG & PNG download. 100% Free, no sign-up required."
+        canonical="https://qr.greenhacker.in/"
+      />
+      <h1 className="sr-only">Free Online QR Code Generator with Logo Support</h1>
+
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
         {/* Left Controls Column */}
         <div className="lg:col-span-7 space-y-6">

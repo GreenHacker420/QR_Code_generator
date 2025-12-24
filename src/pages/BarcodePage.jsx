@@ -2,6 +2,7 @@ import { useEffect } from 'react'
 import { useBarcodeState } from '../hooks/useBarcodeState'
 import { useBarcodeGenerator } from '../hooks/useBarcodeGenerator'
 import { BarcodeInput, BarcodeSettings, BarcodePreview } from '../components/BarcodeControls'
+import SEO from '../components/SEO'
 
 export default function BarcodePage() {
   const {
@@ -25,6 +26,13 @@ export default function BarcodePage() {
 
   return (
     <div className="space-y-8 animate-in fade-in duration-500 slide-in-from-bottom-4">
+      <SEO
+        title="Free Linear Barcode Generator | Create 1D Barcodes Online"
+        description="Generate standard linear barcodes (Code 128, UPC, EAN, Code 39) instantly. Download scalable SVG barcodes for free."
+        canonical="https://qr.greenhacker.in/barcode"
+      />
+      <h1 className="sr-only">Free Online Linear Barcode Generator</h1>
+
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
         <div className="lg:col-span-7 space-y-6">
           <BarcodeInput value={data} onChange={setData} />
