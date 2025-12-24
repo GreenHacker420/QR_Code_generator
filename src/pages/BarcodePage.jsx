@@ -24,45 +24,26 @@ export default function BarcodePage() {
   }, [data, format, options, generate, setSvgUrl])
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-6xl mx-auto">
-        <Header />
-
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          <ControlsPanel
-            data={data}
-            setData={setData}
+    <div className="space-y-8 animate-in fade-in duration-500 slide-in-from-bottom-4">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        <div className="lg:col-span-7 space-y-6">
+          <BarcodeInput value={data} onChange={setData} />
+          <BarcodeSettings
             format={format}
             setFormat={setFormat}
             options={options}
             updateOption={updateOption}
           />
-          <BarcodePreview svgRef={svgRef} svgUrl={svgUrl} onDownload={download} />
+        </div>
+
+        <div className="lg:col-span-5 relative">
+          <div className="sticky top-24">
+            <BarcodePreview svgRef={svgRef} svgUrl={svgUrl} onDownload={download} />
+          </div>
         </div>
       </div>
     </div>
   )
 }
 
-function Header() {
-  return (
-    <div className="text-center mb-8">
-      <h1 className="text-3xl font-bold text-gray-900">Barcode Generator</h1>
-      <p className="text-gray-600">Generate common barcode formats</p>
-    </div>
-  )
-}
 
-function ControlsPanel({ data, setData, format, setFormat, options, updateOption }) {
-  return (
-    <div className="space-y-6">
-      <BarcodeInput value={data} onChange={setData} />
-      <BarcodeSettings
-        format={format}
-        setFormat={setFormat}
-        options={options}
-        updateOption={updateOption}
-      />
-    </div>
-  )
-}
